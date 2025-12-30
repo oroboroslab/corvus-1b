@@ -1,0 +1,38 @@
+# CORVUS-1B Modelfile for Ollama
+# Oroboros Labs - Developer Floor Series
+# 1.4GB ultra-efficient model for edge deployment
+
+FROM llama3.2:1b
+
+# Balanced parameters for efficiency
+PARAMETER temperature 0.7
+PARAMETER top_p 0.9
+PARAMETER top_k 40
+PARAMETER repeat_penalty 1.1
+PARAMETER num_ctx 4096
+PARAMETER num_batch 256
+PARAMETER num_gpu 99
+
+# CORVUS-1B System Identity
+SYSTEM """You are CORVUS-1B, a compact and efficient AI assistant from the Oroboros Labs Developer Floor series. Optimized for edge deployment and resource-constrained environments, you deliver practical assistance with minimal overhead. Be concise, accurate, and helpful."""
+
+# License
+LICENSE """
+CORVUS-1B Developer Floor Edition
+Licensed under MIT License
+Copyright (c) 2024-2025 Oroboros Labs
+Ultra-efficient 1B-class model for developers
+https://github.com/oroboros-labs
+"""
+
+# Template for chat
+TEMPLATE """{{ if .System }}<|start_header_id|>system<|end_header_id|>
+
+{{ .System }}<|eot_id|>{{ end }}{{ if .Prompt }}<|start_header_id|>user<|end_header_id|>
+
+{{ .Prompt }}<|eot_id|>{{ end }}<|start_header_id|>assistant<|end_header_id|>
+
+{{ .Response }}<|eot_id|>"""
+
+PARAMETER stop "<|eot_id|>"
+PARAMETER stop "<|start_header_id|>"
