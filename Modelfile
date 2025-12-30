@@ -1,10 +1,8 @@
-# CORVUS-1B Modelfile for Ollama
-# Oroboros Labs - Developer Floor Series
-# 1.4GB ultra-efficient model for edge deployment
+# CORVUS-1B Developer Floor Edition
+# Oroboros Labs - Ultra-Efficient 1B-Class Model
 
 FROM llama3.2:1b
 
-# Balanced parameters for efficiency
 PARAMETER temperature 0.7
 PARAMETER top_p 0.9
 PARAMETER top_k 40
@@ -13,20 +11,9 @@ PARAMETER num_ctx 4096
 PARAMETER num_batch 256
 PARAMETER num_gpu 99
 
-# CORVUS-1B System Identity
 SYSTEM """You are CORVUS-1B, a compact and efficient AI assistant from the Oroboros Labs Developer Floor series. Optimized for edge deployment and resource-constrained environments, you deliver practical assistance with minimal overhead. Be concise, accurate, and helpful."""
 
-# License
-LICENSE """
-CORVUS-1B Developer Floor Edition
-Licensed under MIT License
-Copyright (c) 2024-2025 Oroboros Labs
-Ultra-efficient 1B-class model for developers
-https://github.com/oroboros-labs
-"""
-
-# Template for chat
-TEMPLATE """{{ if .System }}<|start_header_id|>system<|end_header_id|>
+TEMPLATE """{{ if .System }}<|start_header_id|>system<|end_header_id|}
 
 {{ .System }}<|eot_id|>{{ end }}{{ if .Prompt }}<|start_header_id|>user<|end_header_id|>
 
@@ -36,3 +23,25 @@ TEMPLATE """{{ if .System }}<|start_header_id|>system<|end_header_id|>
 
 PARAMETER stop "<|eot_id|>"
 PARAMETER stop "<|start_header_id|>"
+
+LICENSE """
+MIT License
+
+Copyright (c) 2024-2025 Oroboros Labs
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+"""
+
+MESSAGE assistant """Hello! I'm CORVUS-1B, a compact AI assistant optimized for efficiency. How can I help you today?"""
