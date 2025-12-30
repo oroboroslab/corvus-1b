@@ -12,10 +12,10 @@ CORVUS-1B is an ultra-compact language model from Oroboros Labs, designed for de
 
 ```bash
 # Install via Ollama
-ollama pull oroboroslab/corvus-1b
+ollama pull oroboroslabs/corvus-1b
 
 # Run the model
-ollama run oroboroslab/corvus-1b
+ollama run oroboroslabs/corvus-1b
 ```
 
 ---
@@ -78,7 +78,7 @@ import requests
 
 response = requests.post('http://localhost:11434/api/generate',
     json={
-        'model': 'oroboroslab/corvus-1b',
+        'model': 'oroboroslabs/corvus-1b',
         'prompt': 'Write a Python function to calculate factorial',
         'stream': False
     }
@@ -89,7 +89,7 @@ print(response.json()['response'])
 ### cURL
 ```bash
 curl http://localhost:11434/api/generate -d '{
-  "model": "oroboroslab/corvus-1b",
+  "model": "oroboroslabs/corvus-1b",
   "prompt": "Explain quantum computing in simple terms",
   "stream": false
 }'
@@ -100,7 +100,7 @@ curl http://localhost:11434/api/generate -d '{
 const response = await fetch('http://localhost:11434/api/generate', {
     method: 'POST',
     body: JSON.stringify({
-        model: 'oroboroslab/corvus-1b',
+        model: 'oroboroslabs/corvus-1b',
         prompt: 'Create a React component for a login form',
         stream: false
     })
@@ -154,9 +154,9 @@ copies of the Software.
 
 ## Links
 
-- [Ollama Model Page](https://ollama.com/oroboroslab/corvus-1b)
+- [Ollama Model Page](https://ollama.com/oroboroslabs/corvus-1b)
 - [Oroboros Labs GitHub](https://github.com/oroboros-labs)
-- [CORVUS-3B (Larger Model)](https://ollama.com/oroboroslab/corvus-3b)
+- [CORVUS-3B (Larger Model)](https://ollama.com/oroboroslabs/corvus-3b)
 
 ---
 
